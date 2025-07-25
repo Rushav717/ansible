@@ -9,7 +9,7 @@
    - shell
    - ansible
    - AWS
-   live: true #boolean
+   live: yes #boolean
    tools:  #map
     ci: jenkins
     cloud: AWS
