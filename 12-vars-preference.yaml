@@ -1,8 +1,8 @@
 - name: Variables preference
   hosts: local
   connection: local
-  vars: #global level variable
-   GREET: "global level"
+  # vars: #global level variable
+  #  GREET: "global level"
   vars_files: #declaring the varibale in varfile
   - vars.yaml
   # vars_prompt: #variable through prompt
