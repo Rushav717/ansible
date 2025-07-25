@@ -1,0 +1,17 @@
+- name: Variables preference
+  hosts: local
+  connection: local
+  vars: #global level variable
+   GREET: "global level"
+  vars_files: #declaring the varibale in varfile
+  - vars.yaml
+  vars_prompt: #variable through prompt
+  - name: GREET
+    prompt: ENTER THE VALUE
+    private: false
+  tasks: #task level
+  - name: print the greet variable
+    vars:
+     GREET: "TASK LEVEL"
+    ansible.builtin.debug:
+     msg: "Hello from {{GREET}}"
