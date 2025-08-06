@@ -6,10 +6,10 @@
   tasks:
   - name: install and delete packages
     ansible.builtin.package:
-     name:
-     state:
+     name: {{ item.name }}
+     state: {{ item.state }}
     loop:
-    - { name: 'gcc',state: 'present' }
-    - { name: 'mysql',state: 'absent' }
-    - { name: 'git',state: 'present' }
-    - { name: 'zip',state: 'absent' } 
+    - { name: 'gcc', state: 'present' }
+    - { name: 'mysql', state: 'absent' }
+    - { name: 'git', state: 'present' }
+    - { name: 'zip', state: 'absent' } 
