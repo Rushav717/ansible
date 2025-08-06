@@ -5,5 +5,5 @@
   tasks:
   - name: handle undefined variable
     ansible.builtin.debug:
-     msg: "hello {{person | default('RUSHHAV')}}"
+     msg: "hello {{person | default('RUSHHAV)}}"
     
