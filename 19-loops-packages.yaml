@@ -1,0 +1,15 @@
+#!/bin/bash
+
+- name: install packages
+  hosts: web
+  become: yes
+  tasks:
+  - name: install and delete packages
+    ansible.builtin.package:
+     name:
+     state:
+    loop:
+    - {name: 'gcc', state: 'present' }
+    - {name: 'mysql', state: 'absent'}
+    - {name: 'git', state: 'present'}
+    - {name: 'zip', state: 'absent'} 
