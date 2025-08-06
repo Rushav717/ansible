@@ -8,7 +8,7 @@
     ansible.builtin.package:
      name: "{{ item }}"
      state: installed
-     msg: "Installing {{ item }} is successfull"
+     
     loop:
     - gcc
     - mysql
