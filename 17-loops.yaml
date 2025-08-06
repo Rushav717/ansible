@@ -1,0 +1,14 @@
+#!/bin/bash
+
+- name: loops
+  hosts: web
+  tasks:
+  - name: print the names
+    ansible.builtin.debug:
+     msg: "{{ items }}"
+    loops:
+    - RUSHHAV
+    - BHARGAV
+    - LALITH
+    - MOHAN
+    - ADITHYA
