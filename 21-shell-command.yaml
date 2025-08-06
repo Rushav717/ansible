@@ -1,0 +1,7 @@
+#!/bin/bash
+
+- name: shell vs command
+  hosts: web
+  tasks:
+  - name: execute ls command
+    ansible.builtin.command: ls -ltr > /tmp/output.txt
