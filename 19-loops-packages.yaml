@@ -9,7 +9,7 @@
      name:
      state:
     loop:
-    - {name: 'gcc',state: 'present' }
-    - {name: 'mysql',state: 'absent'}
-    - {name: 'git',state: 'present'}
-    - {name: 'zip',state: 'absent'} 
+    - { name: 'gcc',state: 'present' }
+    - { name: 'mysql',state: 'absent' }
+    - { name: 'git',state: 'present' }
+    - { name: 'zip',state: 'absent' } 
