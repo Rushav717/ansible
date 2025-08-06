@@ -52,5 +52,6 @@
   - name: Check IPaddress is valid or not
     vars:
      ip: "192.168.1.1"
+     ansible_python_interpreter: /usr/bin/python3
     ansible.builtin.debug:
      msg: "{{ ip | ansible.utils.ipaddr }}"
