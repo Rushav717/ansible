@@ -1,0 +1,16 @@
+#!/bin/bash
+
+- name: Installing multiple packages
+  hosts: web
+  become: yes
+  tasks:
+  - name: Installing packages
+    ansible.builtin.package:
+     name: "{{ item }}"
+     state: installed
+     msg: "Installing {{ item }} is successfull"
+    loop:
+    - gcc
+    - mysql
+    - git
+    - zip
