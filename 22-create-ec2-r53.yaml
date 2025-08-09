@@ -2,6 +2,7 @@
   connection: local
   hosts: local
   vars:
+   zone: rushhav.fun
    subnet_id: subnet-0d4c2e5bd813ffbcc
    sg_id: sg-0025a0dd1ae25bbc2
    ami_id: ami-09c813fb71547fc4f
@@ -28,12 +29,24 @@
     loop: "{{ instances }}"
     register: ec2_info
 
-  - name: print the ec2_info
-    ansible.builtin.debug:
-     msg: "{{ ec2_info }}"
+  # - name: print the ec2_info
+  #   ansible.builtin.debug:
+  #    msg: "{{ ec2_info }}"
 
 
   - name: print the pvt ip addresses
     ansible.builtin.debug:
      msg: "{{item.item}}: {{item.instances[0].private_ip_address}}"
+    loop: "{{ec2_info.results}}"
+
+  - name: Crete private ips in r53 records
+    amazon.aws.route53:
+     state: present
+     zone: "{{zone}}"
+     record: "{{item.item}}.{{zone}}"
+     type: A
+     ttl: 1
+     value: "{{item.instances[0].private_ip_address}}"
+     wait: true
+     overwrite: true
     loop: "{{ec2_info.results}}"
