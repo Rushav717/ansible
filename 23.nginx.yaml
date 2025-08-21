@@ -1,0 +1,8 @@
+- name: nginx mysql_secure_installation
+  hosts: all
+  become: yes
+  tasks:
+  - name: installing nginx
+    ansible.builtin.package:
+     name: nginx
+     state: present
